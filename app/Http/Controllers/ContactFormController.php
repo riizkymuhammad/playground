@@ -16,13 +16,9 @@ class ContactFormController extends Controller
 
     public function store(\App\Http\Requests\ContactForm\Store $request)
     {
-        $contactForm = new ContactForm();
-        $contactForm->name = $request->name;
-        $contactForm->email = $request->email;
-        $contactForm->kategori = $request->kategori;
-        $contactForm->message = $request->message;
-        $contactForm->notelp = $request->notelp;
-        $contactForm->save();
+        $contactForm = ContactForm::create($request->validated());
+
+        event(new \App\Events\ContactFormSubmitted($contactForm));
 
         return redirect()->back()->withSuccess('Pesan telah diterima dan menunggu tindak lanjut.');
     }
