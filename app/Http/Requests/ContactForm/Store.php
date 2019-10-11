@@ -23,11 +23,12 @@ class Store extends FormRequest
      */
     public function rules()
     {
-          return [
-              'name' => ['required', new \App\Rules\MinimumWords(2)],
-              'email' => ['required', 'email','regex:/(.*)go\.id|ac\.id|or\.id$/i'],
-              'message' => ['required', 'min:20'],
-              'kategori' => ['required'],
+        return [
+            'name' => ['required', new MinimumWords(2)],
+            'email' => ['required', 'email', 'regex:/(.*)go\.id|ac\.id|or\.id$/i'],
+            'message' => ['required', 'min:20'],
+            'kategori' => ['required'],
+            'noTlp' => [''],
         ];
     }
 }

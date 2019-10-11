@@ -9,7 +9,7 @@ class MinimumWords implements Rule
     /**
      * Create a new rule instance.
      *
-     * @return void
+     * @param mixed $limit
      */
     public function __construct($limit = 3)
     {
@@ -19,8 +19,9 @@ class MinimumWords implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param string $attribute
+     * @param mixed  $value
+     *
      * @return bool
      */
     public function passes($attribute, $value)

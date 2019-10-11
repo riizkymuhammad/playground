@@ -12,6 +12,10 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        \App\Events\ContactFormSubmitted::class => [
+            \App\Listeners\SendContactFormNotification::class,
+            'App\\Listeners\\AnotherListener',
+        ],
     ];
 
     /**
@@ -20,5 +24,10 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
+    }
+
+    public function shouldDiscoverEvents()
+    {
+        return true;
     }
 }
