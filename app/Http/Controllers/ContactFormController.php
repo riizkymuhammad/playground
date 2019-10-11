@@ -24,4 +24,5 @@ class ContactFormController extends Controller
 
         return redirect()->back()->withSuccess('Pesan telah diterima dan menunggu tindak lanjut.');
     }
+
 }
